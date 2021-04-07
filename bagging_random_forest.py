@@ -86,7 +86,7 @@ with open('optdigits.tes', 'r') as testingFile:
 
             if k == 0:  # for only the first base classifier, compare the prediction with the true label of the test sample here to start calculating its accuracy
                # --> add your Python code here
-                if class_predicted == testSample[len(testSample) - 1]:
+                if int(class_predicted) == int(testSample[len(testSample) - 1]):
                     correct += 1
                 total += 1
 
@@ -109,8 +109,8 @@ with open('optdigits.tes', 'r') as testingFile:
             if classVotes[i][j] > majorityVotes:
                 majority = j
                 majorityVotes = classVotes[i][j]
-        
-        #testing
+
+        # testing
         # print("majority: " + str(majority))
         # print("testSample[len(testSample) - 1]: " + str(testSample[len(testSample) - 1]))
 
@@ -118,7 +118,7 @@ with open('optdigits.tes', 'r') as testingFile:
             finalCorrect += 1
             # print("correct!!")
 
-        finalTotal += 1 
+        finalTotal += 1
 
     # for x in range(len(classVotes) - 1):
     #     majority = -1
@@ -151,10 +151,20 @@ with open('optdigits.tes', 'r') as testingFile:
 
     # make the Random Forest prediction for each test sample. Example: class_predicted_rf = clf.predict([[3, 1, 2, 1, ...]]
     # --> add your Python code here
-
     # compare the Random Forest prediction for each test sample with the ground truth label to calculate its accuracy
     # --> add your Python code here
+    rfTotal = 0
+    rfCorrect = 0
+    for i, testSample in enumerate(dbTest):
+        testSampleData = []
+        for j in range(len(testSample) - 2):
+            testSampleData.append(testSample[j])
+        class_predicted = clf.predict([testSampleData])[0]
+        if int(class_predicted) == int(testSample[len(testSample) - 1]):
+            rfCorrect += 1
+        rfTotal += 1
 
+    accuracy = rfCorrect / rfTotal
     # printing Random Forest accuracy here
     print("Random Forest accuracy: " + str(accuracy))
 
