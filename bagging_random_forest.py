@@ -1,9 +1,9 @@
 # -------------------------------------------------------------------------
 # AUTHOR: Matthew Le
 # FILENAME: bagging_random_forest.py
-# SPECIFICATION: description of the program
+# SPECIFICATION: This program samples the training data at random to fit and predict the test data's class
 # FOR: CS 4200- Assignment #3
-# TIME SPENT: Start- 7:40
+# TIME SPENT: 3-4 Hours (Approx.)
 # -----------------------------------------------------------*/
 
 # IMPORTANT NOTE: DO NOT USE ANY ADVANCED PYTHON LIBRARY TO COMPLETE THIS CODE SUCH AS numpy OR pandas. You have to work here only with standard vectors and arrays
